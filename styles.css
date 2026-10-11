@@ -138,6 +138,7 @@ a {
   line-height: 1.2;
   white-space: normal;
   align-self: stretch;
+  width: 100%;
 }
 
 .form-button:disabled {
@@ -516,10 +517,9 @@ a {
 }
 
 .booking-panel {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 22px;
   padding: 22px 26px 24px 26px;
   border-radius: 28px;
@@ -529,8 +529,8 @@ a {
 }
 
 .booking-copy {
-  min-width: 280px;
-  flex: 0 0 280px;
+  min-width: 0;
+  max-width: 280px;
 }
 
 .booking-copy .section-tag {
@@ -544,15 +544,14 @@ a {
   font-size: clamp(2.0rem, 2.5vw, 3.2rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .booking-form {
-  display: flex;
-  flex: 1 1 560px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  align-items: end;
   gap: 16px;
   min-width: 0;
 }
@@ -567,7 +566,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
   padding: 10px 14px;
-  width: 156px;
+  width: 100%;
 }
 
 .field label {
@@ -598,7 +597,7 @@ a {
 
 .booking-extra-field {
   min-width: 0;
-  width: min(47%, 430px);
+  width: 100%;
   min-height: 58px;
   justify-content: center;
   padding-top: 10px;
@@ -607,7 +606,7 @@ a {
 
 .name-field,
 .mobile-field {
-  flex-basis: min(47%, 430px);
+  grid-column: span 2;
 }
 
 .booking-extra-field input {
@@ -801,9 +800,35 @@ a {
   .hero-stats,
   .feature-strip,
   .room-grid,
-  .amenity-grid,
+  .amenity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-panel {
+    grid-template-columns: 1fr;
+    padding: 18px 16px 20px;
+  }
+
+  .booking-copy {
+    max-width: none;
+  }
+
+  .booking-copy h2 {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+  }
+
   .booking-form {
     grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .field,
+  .booking-extra-field,
+  .name-field,
+  .mobile-field,
+  .form-button {
+    grid-column: auto;
+    width: 100%;
   }
 
   .page-shell {
