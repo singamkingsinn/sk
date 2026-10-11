@@ -25,9 +25,11 @@ body {
   font-family: 'Inter', Arial, sans-serif;
   background: linear-gradient(180deg, #f8f3ed 0%, #f2f6f5 100%);
   color: var(--text);
+  overflow-x: hidden;
 }
 
-img {
+img,
+video {
   display: block;
   max-width: 100%;
 }
@@ -786,8 +788,14 @@ a {
 }
 
 @media (max-width: 700px) {
+  .page-shell {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .topbar {
     flex-wrap: wrap;
+    padding: 14px 16px;
   }
 
   .nav {
@@ -797,11 +805,31 @@ a {
     flex-wrap: wrap;
   }
 
+  .nav a {
+    font-size: 0.82rem;
+  }
+
+  .hero {
+    padding-top: 30px;
+  }
+
   .hero-stats,
-  .feature-strip,
   .room-grid,
   .amenity-grid {
     grid-template-columns: 1fr;
+  }
+
+  .feature-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+
+  .feature-item {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .booking-panel {
@@ -831,9 +859,15 @@ a {
     width: 100%;
   }
 
-  .page-shell {
-    padding-left: 16px;
-    padding-right: 16px;
+  .form-button {
+    min-height: 62px;
+  }
+
+  .book-room-button {
+    min-height: 60px;
+    font-size: clamp(1.25rem, 7vw, 1.8rem);
+    border-radius: 18px;
+    padding: 10px 14px;
   }
 
   .image-card img {
@@ -842,5 +876,56 @@ a {
 
   .site-footer {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    gap: 24px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 10vw, 2.6rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .nav-button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-stats div {
+    padding: 14px 12px;
+  }
+
+  .about-image {
+    width: 100%;
+  }
+
+  .about-image img,
+  .about-image video {
+    height: 300px;
+  }
+
+  .field {
+    min-height: 72px;
+    padding: 8px 12px;
+  }
+
+  .date-trigger {
+    font-size: 1rem;
+  }
+
+  .booking-confirmation {
+    padding: 8px;
   }
 }
